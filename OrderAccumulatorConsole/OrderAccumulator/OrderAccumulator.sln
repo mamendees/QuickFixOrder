@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34024.191
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAccumulator", "OrderAccumulator.csproj", "{1FD2FCC4-4BCB-4505-9529-E2529BE80EA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAccumulatorTest", "..\OrderAccumulatorTest\OrderAccumulatorTest.csproj", "{8EF68416-9B4A-4415-B8B6-4B8ABDB919E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FD2FCC4-4BCB-4505-9529-E2529BE80EA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FD2FCC4-4BCB-4505-9529-E2529BE80EA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FD2FCC4-4BCB-4505-9529-E2529BE80EA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FD2FCC4-4BCB-4505-9529-E2529BE80EA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EF68416-9B4A-4415-B8B6-4B8ABDB919E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EF68416-9B4A-4415-B8B6-4B8ABDB919E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EF68416-9B4A-4415-B8B6-4B8ABDB919E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EF68416-9B4A-4415-B8B6-4B8ABDB919E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {510B32BF-549C-4891-B12E-16258696FEFC}
+	EndGlobalSection
+EndGlobal
