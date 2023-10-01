@@ -12,7 +12,7 @@ public class Company
 
     public string Name { get; init; }
     public decimal FinancialExpo { get; private set; }
-    public decimal Limit { get; private set; }
+    public decimal Limit { get; init; }
 
     public bool UpdateFinancialExpo(Side side, Price price, OrderQty orderQty)
     {
@@ -42,7 +42,7 @@ public class Company
 
     private bool CanUpdateFinancialExpo(decimal totalValue)
     {
-        Console.WriteLine($"Total Value: {totalValue}");
+        Console.WriteLine($"Name: {Name} - FinancialExpo: {FinancialExpo} - Total Price: {totalValue:c}");
         return (decimal.Abs(FinancialExpo) + totalValue) <= Limit;
     }
 }

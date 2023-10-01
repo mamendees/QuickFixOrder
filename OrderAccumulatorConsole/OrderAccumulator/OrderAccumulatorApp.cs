@@ -49,6 +49,7 @@ internal class OrderAccumulatorApp : MessageCracker, IApplication
         bool updateFinancialExpo = company.UpdateFinancialExpo(side, price, orderQty);
 
         Message message = CreateReturnMessage(updateFinancialExpo, n);
+        Console.WriteLine();
 
         try
         {
