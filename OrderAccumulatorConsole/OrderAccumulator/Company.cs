@@ -18,10 +18,11 @@ public class Company
     {
         var totalValue = price.getValue() * orderQty.getValue();
 
-        if (!CanUpdateFinancialExpo(totalValue))
+        if (!CanUpdateFinancialExpo(side, totalValue))
             return false;
 
         UpdateFinancialExpo(side, totalValue);
+        Console.WriteLine($"UPDATE FinancialExpo: {FinancialExpo:c}");
         return true;
     }
 
@@ -40,9 +41,21 @@ public class Company
         }
     }
 
-    private bool CanUpdateFinancialExpo(decimal totalValue)
+    private bool CanUpdateFinancialExpo(Side side, decimal totalValue)
     {
-        Console.WriteLine($"Name: {Name} - FinancialExpo: {FinancialExpo} - Total Price: {totalValue:c}");
-        return (decimal.Abs(FinancialExpo) + totalValue) <= Limit;
+        var sideValue = side.getValue();
+        Console.WriteLine($"Name: {Name} - FinancialExpo: {FinancialExpo:c} - Total Price: {totalValue:c}");
+
+        if (FinancialExpo < 0 && sideValue == Side.SELL)
+        {
+            return (decimal.Abs(FinancialExpo) + totalValue) <= Limit;
+        }
+
+        if (FinancialExpo > 0 && sideValue == Side.SELL)
+        {
+            return decimal.Abs(FinancialExpo - totalValue) <= Limit;
+        }
+
+        return (FinancialExpo + totalValue) <= Limit;
     }
 }

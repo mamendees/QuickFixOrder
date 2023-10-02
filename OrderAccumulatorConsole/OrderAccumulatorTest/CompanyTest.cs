@@ -27,6 +27,44 @@ public class CompanyTest
     }
 
     [Fact]
+    public void SideSellCanUpdateExpoFinancialNegative()
+    {
+        var priceSell1 = new Price(500);
+        var qtySell1 = new OrderQty(1000);
+
+        var priceSell2 = new Price(500);
+        var qtySell2 = new OrderQty(1000);
+
+        Assert.Equal(0, Company.FinancialExpo);
+
+        Company.UpdateFinancialExpo(new Side(Side.SELL), priceSell1, qtySell1);
+        var resultActual = Company.UpdateFinancialExpo(new Side(Side.SELL), priceSell2, qtySell2);
+
+        var resultExpected = -(priceSell1.getValue() * qtySell1.getValue()) - (priceSell2.getValue() * qtySell2.getValue());
+        Assert.Equal(resultExpected, Company.FinancialExpo);
+        Assert.True(resultActual);
+    }
+
+    [Fact]
+    public void SideSellCanUpdateExpoFinancialPositive()
+    {
+        var priceBuy = new Price(1000);
+        var qtyBuy = new OrderQty(1000);
+
+        var priceSell = new Price(2000);
+        var qtySell = new OrderQty(1000);
+
+        Assert.Equal(0, Company.FinancialExpo);
+
+        Company.UpdateFinancialExpo(new Side(Side.BUY), priceBuy, qtyBuy);
+        var resultActual = Company.UpdateFinancialExpo(new Side(Side.SELL), priceSell, qtySell);
+
+        var resultExpected = (priceBuy.getValue() * qtyBuy.getValue()) - (priceSell.getValue() * qtySell.getValue());
+        Assert.Equal(resultExpected, Company.FinancialExpo);
+        Assert.True(resultActual);
+    }
+
+    [Fact]
     public void SideBuyCanUpdateExpoExactLimit()
     {
         var side = new Side(Side.BUY);

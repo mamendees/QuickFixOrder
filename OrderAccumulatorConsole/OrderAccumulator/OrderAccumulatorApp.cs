@@ -6,7 +6,6 @@ internal class OrderAccumulatorApp : MessageCracker, IApplication
 {
     int orderID = 0;
     int execID = 0;
-
     private readonly decimal Limit = 1000000;
     private List<Company> Companies;
     private string GenOrderID() { return (++orderID).ToString(); }
